@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html dir="{{ direction }}" lang="{{ lang }}">
+<!--[if IE]><![endif]-->
+<!--[if IE 8 ]><html dir="{{ direction }}" lang="{{ lang }}" class="ie8"><![endif]-->
+<!--[if IE 9 ]><html dir="{{ direction }}" lang="{{ lang }}" class="ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>{{ title }}</title>
+<base href="{{ base }}" />
+{% if description %}
+<meta name="description" content="{{ description }}" />
+{% endif %}
+{% if keywords %}
+<meta name="keywords" content="{{ keywords }}" />
+{% endif %}
+<script src="catalog/view/theme/internetmagazin/js/burger.js" type="text/javascript"></script>
+<script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
+<script src="catalog/view/javascript/common.js" type="text/javascript"></script>
+<link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700" rel="stylesheet" />
+<link href="catalog/view/theme/internetmagazin/stylesheet/stylesheet.css" rel="stylesheet">
+<link href="catalog/view/theme/internetmagazin/css/style.css" rel="stylesheet">
+{% for style in styles %}
+<link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}" />
+{% endfor %}
+{% for script in scripts %}
+<script src="{{ script }}" type="text/javascript"></script>
+{% endfor %}
+
+{% for link in links %}
+<link href="{{ link.href }}" rel="{{ link.rel }}" />
+{% endfor %}
+{% for analytic in analytics %}
+{{ analytic }}
+{% endfor %}
+</head>
+
+<header class="header">
+            <div class="header__container">
+                <a href="{{home}}" class="header__logo"></a>
+                <nav class="header__nav">
+                    <ul>
+                        <li>
+                            <a href="{{ home }}">Главная</a>
+                        </li>
+                       {{menu}}
+                    </ul>
+                </nav>
+                <div class="menu__icon">
+                    <span></span>
+                </div>
+                <div class="header__right">
+                    <a href="{{ wishlist }}" class="header__like" >
+                     <span class="count__productlike">0</span></a>
+                    {{ cart }}
+                    <a class="header__lk" href="{{ register }}"></a>
+                </div>
+            </div>
+        </header>
+

@@ -1,0 +1,11 @@
+{% if categories %}
+   {% for category in categories %}
+   {% if category.children %}
+         {% else %}
+      
+            <li>
+         <a href="{{category.href}}">{{category.name}}</a>
+      </li>
+         {% endif %}
+         {% endfor %}
+{% endif %} 
