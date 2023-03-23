@@ -1,0 +1,94 @@
+<body>
+    <div class="wrapper">
+ {{header}}
+      <main class="main">
+         <section class="section__filter">
+            <div class="section__filter-container">
+                <div class="section__filter-top">
+                    <div class="filter__top-title">{{heading_title}}</div>
+                    <select class="filter__top-sort" id="input-sort"  onchange="location = this.value">{{ text_sort }}
+                     {% for sorts in sorts %}
+              {% if sorts.value == '%s-%s'|format(sort, order) %}
+              
+              
+              
+              <option value="{{ sorts.href }}" selected="selected">{{ sorts.text }}</option>
+              
+              
+              
+              {% else %}
+              
+              
+              
+              <option value="{{ sorts.href }}">{{ sorts.text }}</option>
+              
+              
+              
+              {% endif %}
+              {% endfor %}
+            
+                    </select>
+                </div>
+                <div class="section__filter-search">
+                    <input type="text" class="filter__search-type" placeholder="Кольца" >
+                    <div class="filter__search-button">Поиск</div>
+                </div>
+                <div class="section__filter-price">
+                    <div class="filter__price-cost">
+                        <div class="price__cost-line">
+                            <div class="cost__line-text">Цена</div>
+                        </div>
+                        <div class="price__cost-fromto">
+                            <div class="cost__fromto-from">
+                                <div class="fromto__from-text">От</div>
+                                <input type="text" class="fromto__from-input" placeholder="5000">
+                            </div>
+                            <div class="cost__fromto-from">
+                                <div class="fromto__from-text">До</div>
+                                <input type="text" class="fromto__from-input" placeholder="5000">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter__price-dropdowns">
+                        <div class="price__dropdowns-item">Тип</div>
+                        <div class="price__dropdowns-item">Проба</div>
+                        <div class="price__dropdowns-item">Покрытие</div>
+                        <div class="price__dropdowns-item">Вставка</div>
+                        <div class="price__dropdowns-item">Цвет</div>
+                        <div class="price__dropdowns-item">Диаметр</div>
+                        <div class="price__dropdowns-item">Длина</div>
+                        <div class="price__dropdowns-item">Гарантия</div>
+                        <div class="price__dropdowns-item">Бренд</div>
+                        <div class="price__dropdowns-item">Вид замка</div>
+                        <div class="price__dropdowns-item">Изготовитель</div>
+                    </div>
+                </div>
+            </div>
+         </section>
+         <section class="section__new">
+            <div class="section__new-container section__new-container-product ">
+                    <div class="section__new-items section__new-items-product ">
+                         {% if products %}
+                             {% for product in products %}
+                            <a href="{{product.href}}" class="section__new-item">
+                                <div class="new__item-preview">
+                                    <img src="{{product.thumb}}" alt="#">
+                                </div>
+                                <div class="new__item-name">{{product.name}}</div>
+                                <div class="new__item-price">{{product.price}}</div>
+                            </a>
+                         {% endfor %}
+                         {% else %}
+                         {{ text_empty }}
+                         {% endif %}
+                    </div>
+            </div>
+        </section>           
+        </main>
+         
+         {{footer}}
+    </div>
+
+   
+</body>
+</html>

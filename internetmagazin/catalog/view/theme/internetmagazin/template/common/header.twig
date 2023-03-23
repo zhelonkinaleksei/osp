@@ -49,6 +49,10 @@
                         <li>
                             <a href="{{ home }}">Главная</a>
                         </li>
+                        <li>
+                            <a href="{{ сompare }}">{{text_category}}</a>
+                        </li>
+
                        {{menu}}
                     </ul>
                 </nav>
@@ -57,8 +61,8 @@
                 </div>
                 <div class="header__right">
                     <a href="{{ wishlist }}" class="header__like" >
-                     <span class="count__productlike">0</span></a>
-                    {{ cart }}
+                     <span class="count__productlike">{{ text_wishlist }}</span></a>
+                    {{cart}}
                     <a class="header__lk" href="{{ register }}"></a>
                 </div>
             </div>

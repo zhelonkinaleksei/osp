@@ -1,0 +1,16 @@
+ <section class="section__new">
+                <div class="section__new-container">
+                    <div class="section__title">{{heading_title}}</div>
+                        <div class="section__new-items">
+                         {% for product in products %}
+                            <a href="{{product.href}}" class="section__new-item">
+                                <div class="new__item-preview">
+                                    <img src="{{product.thumb}}" alt="#">
+                                </div>
+                                <div class="new__item-name">{{product.name}}</div>
+                                <div class="new__item-price">{{product.price}}</div>
+                            </a>
+                         {% endfor %}
+                        </div>
+                </div>
+            </section>
